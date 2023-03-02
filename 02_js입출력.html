@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. JS 입출력</title>
+    <style>        
+        .box{border: 1px solid black;}
+        .red{color: red;}
+
+        #area1{
+            border: 1px solid black;
+            background-color: antiquewhite;
+            width: 510px;
+            height: 300px;
+            margin-top: 10px;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+
+            overflow: auto; /*내부 요소가 부모를 초과할 때 초과한 방향으로 스크롤 자동 추가*/
+        }
+        
+        .box1{
+            border: 1px solid black;
+            background-color: lightcoral;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h3>innerHTML</h3>
+    <pre>
+    javascript에서 <b>요소 전체</b>를 읽어들이거나 변경하는 속성.   
+     - 내용을 읽어올 때 태그 + 속성 + 내용 모두 포함.
+     - 내용을 변경할 때 태그는 html 요소로 해석.  
+    </pre>
+
+    <button onclick ="getInnerHTML1()">innerHTML로 읽어오기</button>
+    <button onclick ="setInnerHTML1()">innerHTML로 변경하기</button>
+
+    <p id="test1" class="box">
+        테스트1 입니다.<br>
+        <b class="red">안녕하세요?</b>
+    </p>
+
+    <h4>응용: 박스 안에 박스 넣기</h4>
+    <button onclick="addBox()">추가</button>
+    <div id = "area1">
+        <div class="box1"></div>
+    </div>
+
+    <hr>
+    
+    <h3>innerText</h3>
+    <pre>
+    javascript에서 요소에 작성된 내용만을 읽어들이거나 변경하는 속성. 
+     - 내용을 읽어올 때 요소의 태그, 속성을 무시. 
+     - 내용을 변경할 때 대입되는 태그는 모두 문자열로 해석(html태그로 해석 불가)
+    </pre>
+
+    <button onclick ="getInnerText1()">innerText로 읽어오기</button>
+    <button onclick ="setInnerText1()">innerText로 변경하기</button>
+
+    <p id="test2" class="box">
+        테스트2 입니다.<br>
+        <b class="red">안녕하세요?</b>
+    </p>
+
+    <hr>
+    <h3>window.confirm("내용")</h3>
+    <pre>
+    질문에 대한 "예/아니오" 결과를 얻고자 할 때 사용하는 대화 상자. 
+    확인 -> true / 취소 -> false 를 반환
+    *window는 최상위 객체로 굳이 붙이지 않아도 된다. 
+    </pre>
+
+    <div id="confirmTest" class="box1"></div><br>
+    <button onclick="funConfirm()">confirm 확인</button>
+
+    <hr>
+
+    <h3>window.prompt("내용")</h3>
+    <pre>
+    text를 작성할 수 있는 대화상자.
+     - 확인-> 입력 값 / 취소 -> null 반환
+    </pre>
+
+    <button id="promptTest" onclick="fnPrompt()">prompt 확인</button>
+
+    <pre>
+    ⭐️ 운영체제나 브라우저 종류에 따라 confirm, prompt 창이 달라질 수 있기 때문에 
+       최근에는 modal 창을 직접 만들어서 띄우는 경우가 더 많다.
+    </pre>
+
+<script src="js/02_js입출력.js"></script>    
+</body>
+</html>
